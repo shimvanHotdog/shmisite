@@ -1,0 +1,15 @@
+body {
+  max-width: 680px;
+  margin: 40px auto;
+  padding: 0 16px;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background: #fdfdfd;
+}
+a { color: #2563eb; }
+header { margin-bottom: 32px; }
+.posts { list-style: none; padding: 0; }
+.posts li { margin: 8px 0; }
+.posts span, .date { color: #777; font-size: 0.9em; }
+footer { margin-top: 48px; color: #777; font-size: 0.9em; }
