@@ -1,15 +1,134 @@
-body {
-  max-width: 680px;
-  margin: 40px auto;
-  padding: 0 16px;
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
-  color: #222;
-  background: #fdfdfd;
+/* ---------- Colours (change these to re-theme the whole site) ---------- */
+:root {
+  --paper: #f6f1e7;       /* page background, warm cream */
+  --card: #fffdf8;        /* main content box */
+  --ink: #3b2f25;         /* main text, dark brown */
+  --muted: #7a6a58;       /* dates and small text */
+  --clay: #b5562f;        /* links and highlights, terracotta */
+  --moss: #5e6b3a;        /* tab bar, olive green */
+  --moss-dark: #46522a;   /* active tab */
+  --sand: #e4d8c3;        /* borders and lines */
 }
-a { color: #2563eb; }
-header { margin-bottom: 32px; }
-.posts { list-style: none; padding: 0; }
-.posts li { margin: 8px 0; }
-.posts span, .date { color: #777; font-size: 0.9em; }
-footer { margin-top: 48px; color: #777; font-size: 0.9em; }
+
+/* ---------- Basics ---------- */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+}
+a { color: var(--clay); }
+a:hover { color: var(--ink); }
+h1, h2, h3 { line-height: 1.25; }
+
+/* ---------- Header with site name ---------- */
+.site-header {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 36px 20px 20px;
+}
+.site-title {
+  margin: 0;
+  font-size: 2.4em;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+}
+.site-title a { color: var(--ink); text-decoration: none; }
+.tagline { margin: 4px 0 0; color: var(--muted); font-style: italic; }
+
+/* ---------- Tab bar ---------- */
+.tabs {
+  background: var(--moss);
+  border-top: 3px solid var(--clay);
+}
+.tabs ul {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.tabs a {
+  display: block;
+  padding: 12px 18px;
+  color: #f6f1e7;
+  text-decoration: none;
+  font-family: system-ui, sans-serif;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.tabs a:hover { background: var(--moss-dark); }
+.tabs a.active { background: var(--paper); color: var(--ink); }
+
+/* ---------- Page layout: main column + sidebar ---------- */
+.page {
+  max-width: 1000px;
+  margin: 32px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 32px;
+}
+main {
+  background: var(--card);
+  border: 1px solid var(--sand);
+  padding: 32px 40px;
+}
+main > h1:first-child, main > h2:first-child { margin-top: 0; }
+
+/* ---------- Post list ---------- */
+.posts { list-style: none; padding: 0; margin: 0; }
+.posts li { padding: 18px 0; border-bottom: 1px solid var(--sand); }
+.posts li:last-child { border-bottom: none; }
+.posts a { font-size: 1.25em; text-decoration: none; }
+.posts p { margin: 6px 0 0; }
+.date {
+  display: block;
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ---------- Sidebar ---------- */
+aside section {
+  background: var(--card);
+  border: 1px solid var(--sand);
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  font-size: 0.9em;
+}
+aside h3 {
+  margin: 0 0 8px;
+  font-family: system-ui, sans-serif;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--moss);
+  border-bottom: 2px solid var(--clay);
+  padding-bottom: 6px;
+}
+aside ul { padding-left: 18px; margin: 0; }
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85em;
+  padding: 24px 20px 40px;
+}
+
+/* ---------- Phones: stack the sidebar under the posts ---------- */
+@media (max-width: 760px) {
+  .page { grid-template-columns: 1fr; }
+  main { padding: 24px 20px; }
+  .site-title { font-size: 1.9em; }
+  .tabs ul { padding: 0 12px; }
+  .tabs a { padding: 10px 9px; letter-spacing: 1px; }
+}

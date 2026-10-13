@@ -17,7 +17,14 @@ My personal website and blog, built with plain HTML and CSS (no coding tools nee
 
 1. Copy `posts/hello-world.html` and rename it, e.g. `posts/my-trip.html`.
 2. Change the title, date and text inside it.
-3. Add a link to it in the list in `index.html`.
+3. Add a link to it in the post list in `index.html` and `archive.html`
+   (and, if you like, under "Recent posts" in the sidebar).
+
+## Change the look
+
+- Colours are at the top of `style.css`. Change a colour code there and the whole site updates.
+- The tab bar is the `<nav class="tabs">` block at the top of each page. To add a tab,
+  copy one `<li>` line in every page. `class="active"` marks the tab of the page you're on.
 
 ## Put it online (GitHub Pages)
 
