@@ -19,7 +19,7 @@
     </linearGradient>
   </defs>
   <rect width="1600" height="400" fill="url(#sky)"/>
-  <circle cx="1280" cy="110" r="46" fill="#fbeac2" opacity="0.9"/>
+  <circle cx="300" cy="110" r="46" fill="#fbeac2" opacity="0.9"/>
   <path d="M0 210 C 200 150, 380 190, 560 160 S 900 120, 1100 170 S 1450 140, 1600 175 V400 H0Z" fill="url(#far)"/>
   <path d="M0 260 C 180 220, 420 250, 640 225 S 1000 200, 1220 240 S 1500 220, 1600 235 V400 H0Z" fill="url(#mid)"/>
   <g fill="#4f5b33">

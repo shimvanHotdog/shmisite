@@ -66,7 +66,8 @@ h1, h2, h3 { line-height: 1.25; }
   max-width: 960px;
   margin: -10px auto 0;              /* pulls the picture up over the tabs */
   height: 240px;
-  padding: 50px 40px;
+  padding: 40px 56px;                /* generous space around the title */
+  text-align: right;                 /* title sits in the top right corner */
   background-color: var(--moss);     /* shows while the picture loads */
   background-size: cover;
   background-position: center;
@@ -82,7 +83,7 @@ h1, h2, h3 { line-height: 1.25; }
   text-transform: uppercase;
 }
 .site-title a {
-  color: var(--clay);
+  color: #c8261d;                    /* bold red, like steveblank.com */
   text-decoration: none;
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
 }
@@ -164,7 +165,7 @@ footer {
   .page { grid-template-columns: 1fr; }
   main { padding: 24px 20px; }
   .site-title { font-size: 1.7em; }
-  .banner { height: 170px; padding: 28px 20px; margin-left: 12px; margin-right: 12px; }
+  .banner { height: 170px; padding: 24px 28px; margin-left: 12px; margin-right: 12px; }
   .tabs ul { padding: 0 24px; gap: 4px; }
   .tabs a { padding: 5px 10px 13px; }
 }
