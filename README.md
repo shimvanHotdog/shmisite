@@ -23,7 +23,7 @@ My personal website and blog, built with plain HTML and CSS (no coding tools nee
 ## Change the look
 
 - **Header picture:** drag your own photo (a wide landscape works best, e.g. `my-photo.jpg`) into the
-  `images` folder. Then in each page, find `images/header.svg` near the top and change it to
+  `images` folder. Then in each page, find `images/header.jpg` near the top and change it to
   `images/my-photo.jpg`. Tip: VS Code's **Edit → Replace in Files** does all the pages at once.
 
 - Colours are at the top of `style.css`. Change a colour code there and the whole site updates.
