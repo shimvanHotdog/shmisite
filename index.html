@@ -7,19 +7,48 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Ivan's Website</h1>
-    <p>A little corner of the internet for my notes and projects.</p>
+  <header class="site-header">
+    <p class="site-title"><a href="index.html">Ivan's Website</a></p>
+    <p class="tagline">A little corner of the internet for my notes and projects.</p>
   </header>
 
-  <main>
-    <h2>Posts</h2>
-    <ul class="posts">
-      <!-- To add a post: copy posts/hello-world.html, rename it, then add a line here -->
-      <li><a href="posts/hello-world.html">Hello, world</a> <span>October 13, 2026</span></li>
+  <!-- Tab bar: to add a tab, copy one <li> line. Put class="active" on the current page's link. -->
+  <nav class="tabs">
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="archive.html">Archive</a></li>
     </ul>
-  </main>
+  </nav>
 
-  <footer>Made with plain HTML and CSS.</footer>
+  <div class="page">
+    <main>
+      <h2>Latest posts</h2>
+      <ul class="posts">
+        <!-- To add a post: copy posts/hello-world.html, rename it, then copy the <li> below -->
+        <li>
+          <span class="date">October 13, 2026</span>
+          <a href="posts/hello-world.html">Hello, world</a>
+          <p>My first post on this new site.</p>
+        </li>
+      </ul>
+    </main>
+
+    <aside>
+      <section>
+        <h3>About me</h3>
+        <p>Hi, I'm Ivan. This is where I write about things I'm learning and building. <a href="about.html">More about me</a>.</p>
+      </section>
+      <section>
+        <h3>Recent posts</h3>
+        <ul>
+          <li><a href="posts/hello-world.html">Hello, world</a></li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+
+  <footer>&copy; 2026 Ivan Shishkov &middot; Made with plain HTML and CSS.</footer>
 </body>
 </html>

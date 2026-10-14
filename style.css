@@ -1,15 +1,148 @@
-body {
-  max-width: 680px;
-  margin: 40px auto;
-  padding: 0 16px;
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
-  color: #222;
-  background: #fdfdfd;
+/* ---------- Colours (change these to re-theme the whole site) ---------- */
+:root {
+  --paper: #f6f1e7;       /* page background, warm cream */
+  --card: #fffdf8;        /* main content box */
+  --ink: #3b2f25;         /* main text, dark brown */
+  --muted: #7a6a58;       /* dates and small text */
+  --clay: #b5562f;        /* links and highlights, terracotta */
+  --moss: #5e6b3a;        /* tab bar, olive green */
+  --moss-dark: #46522a;   /* active tab */
+  --sand: #e4d8c3;        /* borders and lines */
 }
-a { color: #2563eb; }
-header { margin-bottom: 32px; }
-.posts { list-style: none; padding: 0; }
-.posts li { margin: 8px 0; }
-.posts span, .date { color: #777; font-size: 0.9em; }
-footer { margin-top: 48px; color: #777; font-size: 0.9em; }
+
+/* ---------- Basics ---------- */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  /* faint horizontal pinstripes, like old Mac OS X windows */
+  background-image: repeating-linear-gradient(var(--paper) 0 2px, #efe8da 2px 4px);
+}
+a { color: var(--clay); }
+a:hover { color: var(--ink); }
+h1, h2, h3 { line-height: 1.25; }
+
+/* ---------- Header with site name ---------- */
+.site-header {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 36px 20px 20px;
+}
+.site-title {
+  margin: 0;
+  font-size: 2.4em;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+}
+.site-title a { color: var(--ink); text-decoration: none; }
+.tagline { margin: 4px 0 0; color: var(--muted); font-style: italic; }
+
+/* ---------- Tab bar: small glossy "Aqua" buttons ---------- */
+.tabs ul {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tabs a {
+  display: block;
+  padding: 3px 16px;
+  border: 1px solid #8a8a8a;
+  border-radius: 12px;               /* pill shape */
+  color: #222;
+  text-decoration: none;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  font-size: 0.7em;
+  /* white glassy button: bright top half, softer bottom half */
+  background: linear-gradient(#ffffff 0%, #f1f1f1 50%, #dcdcdc 51%, #f4f4f4 100%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 1px 0 #fff;
+}
+.tabs a:hover { background: linear-gradient(#ffffff 0%, #e8f2fb 50%, #cfe2f3 51%, #eaf4fd 100%); }
+/* the page you're on gets the blue "aqua" gel */
+.tabs a.active {
+  color: #fff;
+  border-color: #2a5d9e;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.35);
+  background: linear-gradient(#a8d3fb 0%, #5aa6ee 50%, #2f86e0 51%, #7ec4fb 100%);
+  box-shadow: 0 1px 3px rgba(0, 40, 100, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- Page layout: main column + sidebar ---------- */
+.page {
+  max-width: 1000px;
+  margin: 32px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 32px;
+}
+main {
+  background: var(--card);
+  border: 1px solid #c9bca6;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(60, 40, 20, 0.18);
+  padding: 32px 40px;
+}
+main > h1:first-child, main > h2:first-child { margin-top: 0; }
+
+/* ---------- Post list ---------- */
+.posts { list-style: none; padding: 0; margin: 0; }
+.posts li { padding: 18px 0; border-bottom: 1px solid var(--sand); }
+.posts li:last-child { border-bottom: none; }
+.posts a { font-size: 1.25em; text-decoration: none; }
+.posts p { margin: 6px 0 0; }
+.date {
+  display: block;
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ---------- Sidebar: little "windows" with a shaded title bar ---------- */
+aside section {
+  background: var(--card);
+  border: 1px solid #c9bca6;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(60, 40, 20, 0.18);
+  margin-bottom: 24px;
+  font-size: 0.9em;
+  overflow: hidden;
+}
+aside section > *:not(h3) { margin-left: 20px; margin-right: 20px; }
+aside h3 {
+  margin: 0 0 12px;
+  padding: 4px 12px;
+  text-align: center;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  font-size: 0.75em;
+  font-weight: normal;
+  color: #333;
+  text-shadow: 0 1px 0 #fff;
+  border-bottom: 1px solid #a9a9a9;
+  background: linear-gradient(#f4f4f4, #d6d6d6);
+}
+aside ul { padding-left: 18px; margin-top: 0; margin-bottom: 16px; }
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85em;
+  padding: 24px 20px 40px;
+}
+
+/* ---------- Phones: stack the sidebar under the posts ---------- */
+@media (max-width: 760px) {
+  .page { grid-template-columns: 1fr; }
+  main { padding: 24px 20px; }
+  .site-title { font-size: 1.9em; }
+}
