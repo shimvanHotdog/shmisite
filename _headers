@@ -1,0 +1,5 @@
+# Tells browsers how long to keep files before checking for a new copy (Cloudflare reads this file)
+/images/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/style.css
+  Cache-Control: public, max-age=600, stale-while-revalidate=86400

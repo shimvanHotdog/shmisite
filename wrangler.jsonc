@@ -2,10 +2,13 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "shimvan-website",
   "compatibility_date": "2026-10-23",
+  "build": {
+    "command": "node build.mjs"
+  },
   "observability": {
     "enabled": true
   },
   "assets": {
-    "directory": "."
+    "directory": "dist"
   }
 }

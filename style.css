@@ -26,6 +26,15 @@ a { color: var(--clay); }
 a:hover { color: var(--ink); }
 h1, h2, h3 { line-height: 1.25; }
 
+/* ---------- Smooth page changes: tabs and picture stay put, the content fades ---------- */
+@view-transition { navigation: auto; }
+.tabs { view-transition-name: tabs; }
+.banner { view-transition-name: banner; }
+::view-transition-group(*) { animation-duration: 0.18s; }
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+}
+
 /* ---------- Tabs: little glossy "Aqua" folder tabs that sit behind the picture ---------- */
 .tabs ul {
   max-width: 1000px;
@@ -49,8 +58,14 @@ h1, h2, h3 { line-height: 1.25; }
   /* white glassy tab: bright top half, softer bottom half */
   background: linear-gradient(#ffffff 0%, #f1f1f1 45%, #dcdcdc 46%, #f4f4f4 100%);
   box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2), inset 0 1px 0 #fff;
+  -webkit-tap-highlight-color: transparent;   /* no big blue box when tapped on phones */
+  transition: transform 0.1s, filter 0.15s;
 }
 .tabs a:hover { background: linear-gradient(#ffffff 0%, #e8f2fb 45%, #cfe2f3 46%, #eaf4fd 100%); }
+.tabs a:active { transform: translateY(1px); filter: brightness(0.94); }   /* pressed */
+.tabs a:focus { outline: none; }
+/* keyboard users still get a ring, shaped like the tab */
+.tabs a:focus-visible { box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px #2f86e0; }
 /* the page you're on gets the blue "aqua" gel */
 .tabs a.active {
   color: #fff;
@@ -65,15 +80,22 @@ h1, h2, h3 { line-height: 1.25; }
   z-index: 1;                        /* sits on top of the tabs' bottom edge */
   max-width: 960px;
   margin: -10px auto 0;              /* pulls the picture up over the tabs */
-  height: 240px;
+  min-height: 240px;                 /* grows if the text needs more room */
   padding: 40px 56px;                /* generous space around the title */
   text-align: right;                 /* title sits in the top right corner */
   background-color: var(--moss);     /* shows while the picture loads */
-  background-size: cover;
-  background-position: center;
   border: 8px solid var(--card);     /* white photo frame */
   border-radius: 8px;
   box-shadow: 0 3px 10px rgba(60, 40, 20, 0.3);
+  isolation: isolate;                /* keeps the photo behind the title */
+}
+.banner-photo img {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                 /* fills the frame like a background */
 }
 .site-title {
   margin: 0;
@@ -165,7 +187,7 @@ footer {
   .page { grid-template-columns: 1fr; }
   main { padding: 24px 20px; }
   .site-title { font-size: 1.7em; }
-  .banner { height: 170px; padding: 24px 28px; margin-left: 12px; margin-right: 12px; }
+  .banner { min-height: 170px; padding: 24px 28px; margin-left: 12px; margin-right: 12px; }
   .tabs ul { padding: 0 24px; gap: 4px; }
   .tabs a { padding: 5px 10px 13px; }
 }

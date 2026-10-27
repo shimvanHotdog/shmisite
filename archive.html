@@ -3,23 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
   <title>Archive | Ivan's Website</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Fetches the tab pages right away, and fully prepares any page when you hover its link, so clicks are instant -->
+  <script type="speculationrules">{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}],"prefetch":[{"urls":["/","/about","/projects","/archive"],"eagerness":"immediate"}]}</script>
 </head>
 <body>
   <!-- Tabs (they peek out from behind the picture). To add a tab, copy one <li> line. Put class="active" on the current page's link. -->
   <nav class="tabs">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="archive.html" class="active">Archive</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/archive" class="active">Archive</a></li>
     </ul>
   </nav>
 
-  <!-- Header picture: to use your own photo, put it in the images folder and change header.jpg below to its file name -->
-  <header class="banner" style="background-image: url('images/header.jpg');">
-    <p class="site-title"><a href="index.html">Ivan's Website</a></p>
+  <!-- Header picture. To use your own photo, replace images/header.jpg, then run ./make-header-images.sh to make the small fast copies -->
+  <header class="banner">
+    <picture class="banner-photo">
+      <source type="image/webp" srcset="images/header-640.webp 640w, images/header-960.webp 960w, images/header-1280.webp 1280w, images/header-1920.webp 1920w" sizes="(max-width: 960px) 100vw, 944px">
+      <img src="images/header.jpg" alt="" width="1920" height="618" fetchpriority="high">
+    </picture>
+    <p class="site-title"><a href="/">Ivan's Website</a></p>
     <p class="tagline">A little corner of the internet for my notes and projects.</p>
   </header>
 
@@ -30,7 +37,7 @@
       <ul class="posts">
         <li>
           <span class="date">October 13, 2026</span>
-          <a href="posts/hello-world.html">Hello, world</a>
+          <a href="/posts/hello-world">Hello, world</a>
         </li>
       </ul>
     </main>
@@ -38,12 +45,12 @@
     <aside>
       <section>
         <h3>About me</h3>
-        <p>Hi, I'm Ivan. This is where I write about things I'm learning and building. <a href="about.html">More about me</a>.</p>
+        <p>Hi, I'm Ivan. This is where I write about things I'm learning and building. <a href="/about">More about me</a>.</p>
       </section>
       <section>
         <h3>Recent posts</h3>
         <ul>
-          <li><a href="posts/hello-world.html">Hello, world</a></li>
+          <li><a href="/posts/hello-world">Hello, world</a></li>
         </ul>
       </section>
     </aside>
