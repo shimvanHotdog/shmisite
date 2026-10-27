@@ -33,5 +33,7 @@ for (const page of pages) {
 
 cpSync("images", join(out, "images"), { recursive: true });
 cpSync("style.css", join(out, "style.css"));
+cpSync("music-data.js", join(out, "music-data.js"));
+cpSync("music.js", join(out, "music.js"));
 cpSync("_headers", join(out, "_headers"));
 console.log(`Built ${pages.length} pages into ${out}/ (CSS inlined: ${css.length} bytes)`);

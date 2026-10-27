@@ -32,36 +32,14 @@
   </header>
 
   <div class="page">
-    <main>
+    <!-- Everything on this page comes from music-data.js. Edit that file to add albums. -->
+    <main id="music">
       <h1>Music</h1>
-      <p>Songs and albums I keep coming back to. This is a starter list, so swap in your own favourites.</p>
-
-      <h2>Favourite songs</h2>
-      <ul class="posts">
-        <!-- To add a song: copy one <li> block and change the song, the artist, and the note -->
-        <li>
-          <span class="date">Artist name</span>
-          <span class="song">Song title</span>
-          <p>A line about why you like it.</p>
-        </li>
-        <li>
-          <span class="date">Artist name</span>
-          <span class="song">Another song</span>
-          <p>Where you first heard it, or what it reminds you of.</p>
-        </li>
-        <li>
-          <span class="date">Artist name</span>
-          <span class="song">One more song</span>
-          <p>Replace these three with your real picks.</p>
-        </li>
-      </ul>
+      <noscript><p>This page needs JavaScript turned on to show the albums.</p></noscript>
     </main>
 
     <aside>
-      <section>
-        <h3>Listening to now</h3>
-        <p>An album you have on repeat this week.</p>
-      </section>
+      <div id="music-sidebar"></div>
       <section>
         <h3>About me</h3>
         <p>Hi, I'm Ivan. This is where I write about things I'm learning and building. <a href="/about">More about me</a>.</p>
@@ -74,6 +52,9 @@
       </section>
     </aside>
   </div>
+
+  <script src="music-data.js"></script>
+  <script src="music.js"></script>
 
   <footer>&copy; 2026 Ivan Shishkov &middot; Made with plain HTML and CSS.</footer>
 </body>
