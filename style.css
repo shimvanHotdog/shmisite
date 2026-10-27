@@ -140,6 +140,7 @@ main > h1:first-child, main > h2:first-child { margin-top: 0; }
 .posts li:last-child { border-bottom: none; }
 .posts a { font-size: 1.25em; text-decoration: none; }
 .posts p { margin: 6px 0 0; }
+.song { font-size: 1.25em; color: var(--clay); }   /* song titles on the Music page */
 .date {
   display: block;
   color: var(--muted);
