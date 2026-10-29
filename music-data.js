@@ -1,105 +1,31 @@
-// ======================= YOUR MUSIC =======================
-// This is the only file you need to edit for the Music tab.
-//
-// GENRES: the corners of the shape on the Music page.
-// You can rename, add or remove genres here (3 to 8 works best).
-//
-// ARTISTS: one { ... } block per artist.
-//   - genre: the artist's usual genre (must match a name in GENRES)
-//   - albums: one { ... } block per album you've rated
-//       title, year, rating (1 to 10), listened (the date, as "YYYY-MM-DD")
-//       review: your thoughts, between the ` backticks. Leave an empty line to start a new paragraph.
-//       genre (optional): only if this album is a different genre from the artist's usual one
-//
-// To add an album: copy one album block (from { to },) and change the words.
-// To add an artist: copy a whole artist block and change it.
-// The order doesn't matter: the site sorts everything for you.
-//
-// The entries below are EXAMPLES so you can see how it looks. Replace them with your own.
+// ======================= YOUR MUSIC SETTINGS =======================
+// The Music tab shows what you listen to on Last.fm, so it updates by itself
+// every time you scrobble. This is the only file you need to edit for it.
 
-const GENRES = ["Rock", "Pop", "Jazz", "Hip-hop", "Electronic", "Classical"];
+// 1. Your Last.fm username, between the quotes
+const LASTFM_USER = "Shmivan";
 
-const ARTISTS = [
-  {
-    name: "Miles Davis",
-    genre: "Jazz",
-    albums: [
-      {
-        title: "Kind of Blue",
-        year: 1959,
-        rating: 10,
-        listened: "2026-10-20",
-        review: `Example review. Write what you thought of the album here.
+// Your Last.fm API key is NOT kept here, because everything in this folder is public on GitHub.
+// It's stored privately in Cloudflare instead (see "The Music tab" in README.md).
 
-Leave an empty line like the one above to start a new paragraph.`,
-      },
-      {
-        title: "Bitches Brew",
-        year: 1970,
-        rating: 8,
-        listened: "2026-10-22",
-        review: `Example review. Replace this with your own.`,
-      },
-    ],
-  },
-  {
-    name: "Radiohead",
-    genre: "Rock",
-    albums: [
-      {
-        title: "OK Computer",
-        year: 1997,
-        rating: 9,
-        listened: "2026-10-12",
-        review: `Example review. Replace this with your own.`,
-      },
-      {
-        title: "Kid A",
-        year: 2000,
-        rating: 8,
-        listened: "2026-10-15",
-        genre: "Electronic",
-        review: `Example review. This album has its own genre line, so it counts towards Electronic instead of Rock.`,
-      },
-    ],
-  },
-  {
-    name: "Daft Punk",
-    genre: "Electronic",
-    albums: [
-      {
-        title: "Discovery",
-        year: 2001,
-        rating: 7,
-        listened: "2026-10-05",
-        review: `Example review. Replace this with your own.`,
-      },
-    ],
-  },
-  {
-    name: "Kendrick Lamar",
-    genre: "Hip-hop",
-    albums: [
-      {
-        title: "To Pimp a Butterfly",
-        year: 2015,
-        rating: 9,
-        listened: "2026-10-18",
-        review: `Example review. Replace this with your own.`,
-      },
-    ],
-  },
-  {
-    name: "ABBA",
-    genre: "Pop",
-    albums: [
-      {
-        title: "Arrival",
-        year: 1976,
-        rating: 6,
-        listened: "2026-10-02",
-        review: `Example review. Replace this with your own.`,
-      },
-    ],
-  },
-];
+// 2. Which stretch of time to show: "overall", "12month", "6month", "3month", "1month" or "7day"
+const PERIOD = "overall";
+
+// 3. The corners of the genre shape. Each artist's Last.fm tags are matched against
+//    these words: an artist tagged "post-rock" counts towards Rock, "synthpop" towards both Pop and Electronic, and so on.
+//    You can rename, add or remove genres (3 to 8 works best) and their words.
+const GENRES = {
+  "Rock": ["rock", "metal", "punk", "grunge", "indie", "alternative", "shoegaze"],
+  "Pop": ["pop", "dance", "r&b", "rnb", "soul"],
+  "Jazz": ["jazz", "swing", "bebop", "fusion", "blues"],
+  "Hip-hop": ["hip hop", "hip-hop", "hiphop", "rap", "trap", "grime"],
+  "Electronic": ["electronic", "electronica", "techno", "house", "ambient", "edm", "idm", "synth", "dubstep", "drum and bass", "trance"],
+  "Classical": ["classical", "orchestral", "piano", "baroque", "opera", "soundtrack", "composer"],
+};
+
+// 4. Optional: your own thoughts on an album. They show on that album's page.
+//    Write "Artist / Album" exactly as Last.fm spells it, then your text between the ` backticks.
+//    Leave an empty line to start a new paragraph. Delete the example or add more lines like it.
+const NOTES = {
+  "Radiohead / OK Computer": `Example note. Replace this with your own thoughts, or delete this line.`,
+};
