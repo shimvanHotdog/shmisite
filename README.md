@@ -20,6 +20,13 @@ My personal website and blog, built with plain HTML and CSS (no coding tools nee
 3. Add a link to it in the post list in `index.html` and `archive.html`
    (and, if you like, under "Recent posts" in the sidebar).
 
+## Add an album to the Music tab
+
+Open `music-data.js`. Copy one album block (from `{` to `},`) under the right artist, then change
+the title, year, rating (1 to 10), date and review. To add an artist, copy a whole artist block.
+The Music page sorts everything and redraws the genre shape by itself. The genre names
+(the corners of the shape) are in the `GENRES` line at the top of the same file.
+
 ## Change the look
 
 - **Header picture:** drag your own photo (a wide landscape works best, e.g. `my-photo.jpg`) into the
