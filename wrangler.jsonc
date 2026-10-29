@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "shimvan-website",
+  "main": "worker.js",
   "compatibility_date": "2026-10-23",
   "build": {
     "command": "node build.mjs"
@@ -9,6 +10,7 @@
     "enabled": true
   },
   "assets": {
-    "directory": "dist"
+    "directory": "dist",
+    "binding": "ASSETS"
   }
 }
