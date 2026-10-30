@@ -217,6 +217,15 @@ aside ul { padding-left: 18px; margin-top: 0; margin-bottom: 16px; }
 #music.loading { opacity: 0.6; transition: opacity 0.2s; }
 aside ol { padding-left: 24px; margin-top: 0; margin-bottom: 16px; }
 
+/* ---------- My cut-out photo in the "About me" box ---------- */
+aside section > .me {
+  display: block;
+  width: auto;
+  height: 300px;
+  margin: 4px auto 0;                /* centred in the box */
+  filter: drop-shadow(0 4px 6px rgba(60, 40, 20, 0.35));   /* soft shadow that follows my outline */
+}
+
 /* ---------- Footer ---------- */
 footer {
   text-align: center;
